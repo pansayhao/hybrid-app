@@ -1,0 +1,23 @@
+<ion-view>
+  <!--头部导航-->
+  <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <a class="button button-icon icon ion-ios-arrow-left" href="#/tab/account"></a>
+    </div>
+    <h1 class="title">我的收藏</h1>
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-compose-outline" ng-click="guanli()">
+      </button>
+    </div>
+  </ion-header-bar>
+  <!--内容-->
+  <ion-content class="padding" on-swipe-right="onSwipeRight()">
+    <div class="list">
+      <a class="item item-avatar-left" ng-repeat="item in shoucangdata" href="">
+        <img src="{{item.thumb}}">
+        <h2>标签:{{item.tags}}</h2>
+        <p>{{item.title}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

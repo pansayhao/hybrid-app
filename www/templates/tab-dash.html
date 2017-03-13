@@ -1,0 +1,51 @@
+<ion-view>
+  <div class="bar bar-stable bar-header">
+    <h1 class="title">口袋小报</h1>
+  </div>
+  <!--副标题-->
+  <div id="tabs" class="tabs tabs-top tabs-stable">
+    <a class="tab-item" ng-class="{active:$index == xiabiao}" ng-repeat="item in fubiaotiarr" ng-click="clickFn($index)">
+      {{item}}
+    </a>
+  </div>
+  <ion-content class="has-subheader">
+    <!--下拉刷新-->
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+    <style>
+      img{
+        width: 100%;
+        height: 200px;
+      }
+      #tabs .active{
+        color: seagreen;
+        font-size: 20px;
+      }
+    </style>
+    <!--轮播图-->
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" pager-click="lunboclickFn(index)">
+      <ion-slide ng-repeat="item in lunbotuData" ng-click="lunbotuC($index)">
+        <img src="{{item.thumb}}" alt="">
+      </ion-slide>
+    </ion-slide-box>
+    <!--列表-->
+    <ion-slide-box>
+        <ion-list>
+          <ion-item class="item-thumbnail-right" ng-repeat="item in newsData" ng-click="newsC($index)">
+            <img ng-src="{{item.thumb}}">
+            <h2 style="font-size: 18px;color: #4d4d4d;margin-bottom: 10px;margin-top: 10px">{{item.title}}</h2>
+            <p>{{item.description}}</p>
+            <span style="font-size: 10px;margin-right: 30%">评论{{item.comments}}</span>
+            <span style="font-size: 10px"><span class=" icon ion-eye"></span>{{item.contentid}}&nbsp</span>
+          </ion-item>
+        </ion-list>
+    </ion-slide-box>
+    <!--上啦刷新-->
+    <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
+    <ion-infinite-scroll
+      ng-if="istrue"
+      on-infinite="loadMore()"
+      immediate-check=false
+    >
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="视频">
+  <div class="bar bar-stable bar-header">
+    <h1 class="title">视频</h1>
+  </div>
+  <ion-content class="has-header">
+      <!--新闻视频-->
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+          <ion-item class="item-thumbnail" ng-repeat="item in bookData" ng-click="bookC($index)">
+            <div style="width: 100%;height:15px;text-align: center;font-size: 13px;line-height: 15px;color: #4B946A;margin-bottom: 10px;">-{{item.topicName}}-</div>
+            <img class="full-image" ng-src="{{item.cover}}">
+            <h2 style="font-size: 18px;color: #4d4d4d;margin-bottom: 10px;margin-top: 10px">{{item.title}}</h2>
+            <p>{{item.topicDesc}}</p>
+            <span style="font-size: 10px">{{item.ptime}}</span>
+            <span style="font-size: 10px;position: fixed;right: 55px;">{{item.playCount}}&nbsp<span class=" icon ion-eye"></span></span>
+          </ion-item>
+        </ion-list>
+        <div ng-show="!istrue" style="width: 100%;font-size: 14px;color: #4c4c4c;text-align: center">没有更多内容了</div>
+        <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
+        <ion-infinite-scroll
+          ng-if="istrue"
+          on-infinite="loadMore()"
+          immediate-check=false
+        >
+        </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

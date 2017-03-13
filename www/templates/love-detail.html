@@ -1,0 +1,16 @@
+<ion-view>
+  <ion-content class="padding" on-swipe-right="onSwipeRight()">
+    <!--头部导航-->
+    <ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+      <a class="button button-icon icon ion-ios-arrow-left" href="#/tab/love"></a>
+    </div>
+    <h1 class="title">{{loveDetaildata.tags}}</h1>
+    <div class="buttons">
+    <button  id="shoucang" style="display: block;" class="button button-icon icon ion-ios-heart-outline" ng-click="shoucang()"></button>
+    <button  id="shoucang2" style="display: none;" class="button button-icon icon ion-ios-heart" ng-click="quxiaoshoucang()"></button>
+    </div>
+    </ion-header-bar>
+    <iframe id="love" frameborder="0" height="{{height}}" width="100%"></iframe>
+  </ion-content>
+</ion-view>

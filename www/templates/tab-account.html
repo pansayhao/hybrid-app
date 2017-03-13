@@ -1,0 +1,49 @@
+<ion-view view-title="我的">
+  <div class="bar bar-stable bar-header">
+    <h1 class="title">我的</h1>
+  </div>
+  <ion-content class="has-header">
+    <ion-list>
+      <div style="width: 100%;height: 100px;background: lightskyblue;position: relative">
+        <div ng-click="denglu()" style="width: 70px;height: 70px;position: absolute;top: 15%;left:15%">
+          <img style="width: 70px;height: 70px;border-radius: 50%;" src="{{touxiang}}" alt="">
+        </div>
+        <div ng-click="denglu()" style="position: absolute;top: 35%;left:45%"><h3>{{name}}</h3></div>
+      </div>
+      <!--分隔符-->
+      <!--<ion-item class="item-divider item-icon-left item-icon-right"></ion-item>-->
+      <!--我的手藏-->
+      <ion-item class="item-icon-left item-icon-right" ng-click="shoucangC()">
+        <i class="icon ion-ios-star-outline"></i>
+        <h2 style="font-size: 18px;">我的收藏</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <!--我看过的-->
+      <ion-item class="item-icon-left item-icon-right">
+        <i class="icon ion-ios-clock-outline"></i>
+        <h2 style="font-size: 18px;">我看过的</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <!--分隔符-->
+      <ion-item class="item-divider item-icon-left item-icon-right"></ion-item>
+      <!--意见反馈-->
+      <ion-item class="item-icon-left item-icon-right" ng-click="yijianC()">
+        <i class="icon ion-ios-compose-outline"></i>
+        <h2 style="font-size: 18px;">意见反馈</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <!--关于我们-->
+      <ion-item class="item-icon-left item-icon-right" ng-click="guanyuC()">
+        <i class="icon ion-ios-information-outline"></i>
+        <h2 style="font-size: 18px;">关于我们</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <!--退出登录-->
+      <ion-item class="item-icon-left item-icon-right" ng-show="Show" ng-click="tuichuC()">
+        <i class="icon ion-ios-briefcase-outline"></i>
+        <h2 style="font-size: 18px;">退出登录</h2>
+        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,37 @@
+<ion-view view-title="喜欢">
+  <div class="bar bar-stable bar-header">
+    <h1 class="title">画报</h1>
+  </div>
+  <ion-content class="has-header">
+      <!--我喜欢的-->
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+      <div class="list">
+        <div style="background-image: url('{{item.thumb}}');background-size: 100%; height: 410px;position: relative" class="item item-body" ng-click="loveClick($index)" ng-repeat="item in loveData">
+          <div class="padding" style="position: absolute;left:0px;bottom: 0px;width: 100%;height: 155px;color: #4cd964;background-color: rgba(0,0,0,0.5)">
+            <span>{{item.cat_title}}</span>
+            <span>{{item.published}}</span>
+            <h2 style="color: #4cd964">{{item.title}}</h2>
+            <p style="color: #4cd964">{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+      <!--<ion-slide-box does-continue="true" auto-play="true" pager-click="clickFn(index)">-->
+        <!--<ion-slide ng-repeat="item in loveData">-->
+          <!--<img style="width: 100%;height: 500px;" src="{{item.thumb}}" alt="">-->
+        <!--</ion-slide>-->
+      <!--</ion-slide-box>-->
+
+
+
+
+        <div ng-show="!istrue" style="width: 100%;font-size: 14px;color: #4c4c4c;text-align: center">没有更多内容了</div>
+        <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
+        <ion-infinite-scroll
+          ng-if="istrue"
+          on-infinite="loadMore()"
+          immediate-check=false
+        >
+        </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
